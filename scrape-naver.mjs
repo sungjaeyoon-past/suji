@@ -2,6 +2,7 @@ import { chromium } from 'playwright';
 import { writeFileSync } from 'fs';
 
 const COMPLEXES = [
+  // 수지구청역
   { name: '신정마을주공1', complexNo: '3745' },
   { name: '용인수지신정마을9단지', complexNo: '3746' },
   { name: '신정7단지(상록)공무원', complexNo: '11231' },
@@ -9,6 +10,13 @@ const COMPLEXES = [
   { name: '현대', complexNo: '2225' },
   { name: '동부', complexNo: '3740' },
   { name: '동보', complexNo: '3739' },
+  // 동천역
+  { name: '동천마을현대홈타운1차', complexNo: '3705' },
+  { name: '동천마을현대홈타운2차', complexNo: '3706' },
+  { name: '동천디이스트', complexNo: '9390' },
+  { name: '써니벨리', complexNo: '8361' },
+  // 성복역
+  { name: '성동마을강남', complexNo: '3093' },
 ];
 
 const browser = await chromium.launch({

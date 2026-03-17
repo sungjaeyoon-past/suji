@@ -3,14 +3,22 @@ import { writeFileSync, readFileSync, existsSync, readdirSync } from 'fs';
 
 // === 메타데이터 ===
 const complexMeta = {
-  '신정마을주공1': { label: '신정마을주공1', filterKey: '주공1', units: 1044, year: 2000, walk: 5 },
-  '용인수지신정마을9단지': { label: '신정9단지', filterKey: '9단지', units: 812, year: 2000, walk: 6 },
-  '신정7단지(상록)공무원': { label: '신정7단지(상록)', filterKey: '상록7', units: 670, year: 2000, walk: 8 },
-  '한국': { label: '한국', filterKey: '한국', units: 416, year: 1995, walk: 3 },
-  '현대': { label: '현대', filterKey: '현대', units: 1168, year: 1994, walk: 10 },
-  '한성': { label: '한성', filterKey: '한성', units: 774, year: 1995, walk: 7 },
-  '동부': { label: '동부', filterKey: '동부', units: 612, year: 1995, walk: 14 },
-  '동보': { label: '동보', filterKey: '동보', units: 470, year: 1995, walk: 9 },
+  // 수지구청역
+  '신정마을주공1': { label: '신정마을주공1', filterKey: '주공1', units: 1044, year: 2000, station: '수지구청' },
+  '용인수지신정마을9단지': { label: '신정9단지', filterKey: '9단지', units: 812, year: 2000, station: '수지구청' },
+  '신정7단지(상록)공무원': { label: '신정7단지(상록)', filterKey: '상록7', units: 670, year: 2000, station: '수지구청' },
+  '한국': { label: '한국', filterKey: '한국', units: 416, year: 1995, station: '수지구청' },
+  '현대': { label: '현대', filterKey: '현대', units: 1168, year: 1994, station: '수지구청' },
+  '한성': { label: '한성', filterKey: '한성', units: 774, year: 1995, station: '수지구청' },
+  '동부': { label: '동부', filterKey: '동부', units: 612, year: 1995, station: '수지구청' },
+  '동보': { label: '동보', filterKey: '동보', units: 470, year: 1995, station: '수지구청' },
+  // 동천역
+  '동천마을현대홈타운1차': { label: '현대홈타운1', filterKey: '홈타운1', units: 1128, year: 2002, station: '동천' },
+  '동천마을현대홈타운2차': { label: '현대홈타운2', filterKey: '홈타운2', units: 1128, year: 2002, station: '동천' },
+  '동천디이스트': { label: '동천디이스트', filterKey: '디이스트', units: 1334, year: 2020, station: '동천' },
+  '써니벨리': { label: '써니벨리', filterKey: '써니벨리', units: 627, year: 2004, station: '동천' },
+  // 성복역
+  '성동마을강남': { label: '강남빌리지', filterKey: '강남빌리지', units: 428, year: 2001, station: '성복' },
 };
 
 const targetNames = Object.keys(complexMeta);
@@ -173,10 +181,11 @@ const complexData = targetNames.map(name => {
     g.floorEntries.sort((a, b) => a.floor - b.floor);
     const floorParts = g.floorEntries.map(e => {
       const dongNum = e.dong ? e.dong.replace(/동$/, '') : '';
-      return dongNum ? `${e.floor}층(${dongNum})` : `${e.floor}층`;
+      const label = dongNum ? `${e.floor}층(${dongNum})` : `${e.floor}층`;
+      return `<span class="floor-entry" data-efloor="${e.floor}">${label}</span>`;
     });
     g.floorLabel = floorParts.join('<br>');
-    g.floor = g.floorEntries[0].floor; // 필터용 최소 층
+    g.floor = Math.max(...g.floorEntries.map(e => e.floor));
     return g;
   });
   // 가격순 정렬

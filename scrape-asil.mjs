@@ -2,14 +2,22 @@ import { chromium } from 'playwright';
 import { writeFileSync } from 'fs';
 
 const COMPLEXES = [
+  // 수지구청역
   { name: '신정마을주공1', seq: '8341' },
   { name: '용인수지신정마을9단지', seq: '8342' },
   { name: '신정7단지(상록)공무원', seq: '8335' },
   { name: '한국', seq: '8347' },
   { name: '현대', seq: '8349' },
   { name: '한성', seq: '8348' },
-  { name: '동부', seq: '8321' }, // 동부 - 추정 (8320~8325 범위)
+  { name: '동부', seq: '8321' },
   { name: '동보', seq: '8322' },
+  // 동천역
+  { name: '동천마을현대홈타운1차', seq: '8404' },
+  { name: '동천마을현대홈타운2차', seq: '8403' },
+  { name: '동천디이스트', seq: '20085365' },
+  { name: '써니벨리', seq: '53281' },
+  // 성복역
+  { name: '성동마을강남', seq: '8411' },
 ];
 
 const browser = await chromium.launch({

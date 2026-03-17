@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>수지구청역 관심 아파트</title>
+<title>수지 관심 아파트</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -85,6 +85,20 @@ body {
   flex-wrap: wrap;
   gap: 6px;
   border-bottom: 1px solid #eee;
+}
+.station-label {
+  flex: 0 0 auto;
+  font-size: 11px;
+  color: #999;
+  font-weight: 700;
+  padding: 6px 4px 6px 8px;
+  white-space: nowrap;
+  align-self: center;
+}
+.station-label:not(:first-child) {
+  margin-left: 6px;
+  border-left: 1px solid #ddd;
+  padding-left: 10px;
 }
 .filter-chip {
   flex: 0 0 auto;
@@ -288,10 +302,10 @@ body {
 
 <div class="header">
   <div class="header-top">
-    <h1>수지구청역 관심 아파트</h1>
+    <h1>수지 관심 아파트</h1>
     <button class="map-toggle-header hidden" id="mapOpenBtn" onclick="toggleMap()">지도 보기</button>
   </div>
-  <div class="sub">2026년 실거래가 기준 · 풍덕천동</div>
+  <div class="sub">2026년 실거래가 기준</div>
 </div>
 
 <div class="map-container" id="mapContainer">
@@ -333,10 +347,20 @@ function init() {
 function renderComplexFilter() {
   const bar = document.getElementById('complexFilter');
   let html = '';
+  // 역별 그룹핑
+  const stations = {};
   DATA.forEach(c => {
-    const isActive = c.name === '신정마을주공1' ? ' active' : '';
-    html += `<div class="filter-chip${isActive}" data-filter="${c.name}">${c.filterKey}</div>`;
+    const st = c.station || '기타';
+    if (!stations[st]) stations[st] = [];
+    stations[st].push(c);
   });
+  for (const [station, complexes] of Object.entries(stations)) {
+    html += `<span class="station-label">${station}</span>`;
+    complexes.forEach(c => {
+      const isActive = c.name === activeComplex ? ' active' : '';
+      html += `<div class="filter-chip${isActive}" data-filter="${c.name}">${c.filterKey}</div>`;
+    });
+  }
   bar.innerHTML = html;
 
   bar.addEventListener('click', (e) => {
@@ -374,14 +398,33 @@ function applyFilters() {
     card.classList.toggle('hidden', card.dataset.complex !== activeComplex);
   });
 
-  // Filter rows in each card (매물은 저층제외 미적용)
+  // Filter rows in each card
   document.querySelectorAll('.trade-table tr').forEach(row => {
     if (row.classList.contains('detail-row')) return;
-    if (row.classList.contains('listing-row')) return; // 매물은 항상 표시
     const area = parseFloat(row.dataset.area);
     const floor = parseInt(row.dataset.floor);
-    const t = { area, floor };
-    row.style.display = filterTrade(t) ? '' : 'none';
+
+    if (row.classList.contains('listing-row')) {
+      // 매물: 개별 층수 span을 필터링
+      const entries = row.querySelectorAll('.floor-entry');
+      if (entries.length > 0) {
+        let anyVisible = false;
+        entries.forEach(span => {
+          const ef = parseInt(span.dataset.efloor);
+          const hide = conditions.noLow && ef < 5;
+          span.style.display = hide ? 'none' : '';
+          // br도 함께 숨기기
+          const nextBr = span.nextSibling;
+          if (nextBr && nextBr.nodeName === 'BR') nextBr.style.display = hide ? 'none' : '';
+          if (!hide) anyVisible = true;
+        });
+        row.style.display = anyVisible ? '' : 'none';
+      } else {
+        row.style.display = filterTrade({ area, floor }) ? '' : 'none';
+      }
+    } else {
+      row.style.display = filterTrade({ area, floor }) ? '' : 'none';
+    }
   });
 
   // Update type section visibility
@@ -421,7 +464,7 @@ function renderCards() {
     html += `<div class="card" data-complex="${c.name}">`;
     html += `<div class="card-title-row">`;
     html += `<span class="name">${c.label} <span class="meta">(${c.units.toLocaleString()}세대, ${c.year}년)</span></span>`;
-    html += `<span class="walk">도보 ${c.walk}분</span>`;
+    if (c.station) html += `<span class="walk">${c.station}역</span>`;
     html += `</div>`;
 
     // Chart
@@ -507,7 +550,8 @@ function renderCards() {
             return { date, direction: e.direction, description: e.description, floor: e.floor, dong: e.dong };
           });
           const detailsJson = JSON.stringify(details).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-          html += `<tr data-area="${l.area}" data-floor="${l.floor}" class="listing-row" onclick="toggleDetail(this)" data-details="${detailsJson}">`;
+          const allFloors = (l.floorEntries || []).map(e => e.floor).join(',');
+          html += `<tr data-area="${l.area}" data-floor="${l.floor}" data-floors="${allFloors}" class="listing-row" onclick="toggleDetail(this)" data-details="${detailsJson}">`;
           html += `<td class="date"><span style="color:#16a34a;font-size:14px;font-weight:bold">ⓘ</span></td>`;
           html += `<td class="floor">${l.floorLabel || l.floor + '층'}</td>`;
           html += `<td class="amount">${l.priceLabel}</td>`;
@@ -536,7 +580,8 @@ function renderCards() {
             return { date, direction: e.direction, description: e.description, floor: e.floor, dong: e.dong };
           });
           const detailsJson = JSON.stringify(details).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-          html += `<tr data-area="${l.area}" data-floor="${l.floor}" class="listing-row" onclick="toggleDetail(this)" data-details="${detailsJson}">`;
+          const allFloors = (l.floorEntries || []).map(e => e.floor).join(',');
+          html += `<tr data-area="${l.area}" data-floor="${l.floor}" data-floors="${allFloors}" class="listing-row" onclick="toggleDetail(this)" data-details="${detailsJson}">`;
           html += `<td class="date"><span style="color:#16a34a;font-size:14px;font-weight:bold">ⓘ</span></td>`;
           html += `<td class="floor">${l.floorLabel || l.floor + '층'}</td>`;
           html += `<td class="amount">${l.priceLabel}</td>`;
