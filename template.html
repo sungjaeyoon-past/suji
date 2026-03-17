@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>수지구청역 관심 아파트</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, 'Apple SD Gothic Neo', sans-serif;
+  background: #f5f6f8;
+  color: #222;
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.header {
+  background: #fff;
+  padding: 20px 16px 12px;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header h1 { font-size: 20px; font-weight: 700; }
+.header .sub { font-size: 13px; color: #999; margin-top: 4px; }
+.hidden { display: none !important; }
+.map-toggle-header {
+  font-size: 18px;
+  color: #16a34a;
+  background: none;
+  border: 1px solid #16a34a;
+  border-radius: 20px;
+  padding: 6px 18px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.map-toggle-bottom {
+  display: block;
+  width: calc(100% - 16px);
+  margin: 0 8px 8px;
+  padding: 6px 0;
+  background: #f0fdf4;
+  border: 1px solid #16a34a;
+  border-radius: 0 0 12px 12px;
+  color: #16a34a;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+}
+.map-toggle-bottom.hidden { display: none; }
+.map-container {
+  margin: 0 8px 0;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  position: relative;
+}
+.map-container.hidden { display: none; }
+.map-container img {
+  width: 100%;
+  height: 400px;
+  object-fit: contain;
+  background: #f0f0f0;
+  display: block;
+}
+
+.filter-section {
+  background: #fff;
+  position: sticky;
+  top: 56px;
+  z-index: 9;
+}
+.filter-bar {
+  padding: 10px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  border-bottom: 1px solid #eee;
+}
+.filter-chip {
+  flex: 0 0 auto;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+}
+.filter-chip.active {
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+}
+.condition-bar {
+  padding: 8px 16px;
+  display: flex;
+  gap: 6px;
+  border-bottom: 1px solid #eee;
+}
+.cond-chip {
+  flex: 0 0 auto;
+  padding: 5px 12px;
+  border-radius: 16px;
+  font-size: 13px;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #888;
+  cursor: pointer;
+  transition: all 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.cond-chip.active {
+  background: #eef2ff;
+  color: #2563eb;
+  border-color: #2563eb;
+}
+
+.card {
+  background: #fff;
+  margin: 8px 8px;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+.card.hidden { display: none; }
+.card-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.card-title-row .name { font-size: 17px; font-weight: 700; }
+.card-title-row .name .meta { font-size: 13px; font-weight: 400; color: #333; }
+.card-title-row .walk {
+  font-size: 13px;
+  color: #666;
+  background: #f0f4ff;
+  padding: 3px 8px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+.chart-container {
+  background: #f8f9fb;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 14px;
+  position: relative;
+}
+.chart-container canvas { max-height: 180px; }
+.chart-tooltip {
+  position: absolute;
+  background: #333;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 5;
+  display: none;
+}
+
+.section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #eee;
+}
+
+.trades-split {
+  display: flex;
+  gap: 8px;
+}
+.trades-col {
+  flex: 1;
+  min-width: 0;
+}
+.trades-col.col-59 {
+  border-right: 1px dashed #ddd;
+  padding-right: 8px;
+}
+.type-section { margin-bottom: 12px; }
+.type-label {
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+.type-label.type-59 {
+  color: #dc2626;
+  background: #fef2f2;
+}
+.type-label.type-84 {
+  color: #2563eb;
+  background: #f0f4ff;
+}
+.trade-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+.trade-table td {
+  padding: 4px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+.trade-table .date { color: #888; text-align: left; }
+.trade-table .floor { color: #555; text-align: left; padding-left: 6px; }
+.trade-table .amount { font-weight: 600; text-align: right; }
+.trades-col.col-59 .amount { color: #dc2626; }
+.trades-col.col-84 .amount { color: #2563eb; }
+
+.listing-split {
+  display: flex;
+  gap: 8px;
+}
+.listing-col { flex: 1; min-width: 0; }
+.listing-col .type-label.type-59 {
+  color: #c2410c;
+  background: #fff7ed;
+}
+.listing-col .type-label.type-84 {
+  color: #1d4ed8;
+  background: #eff6ff;
+}
+.listing-row .amount { color: #e67e22; }
+
+.more-btn {
+  display: block;
+  width: 100%;
+  padding: 6px;
+  margin-top: 4px;
+  background: #f8f9fb;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  color: #888;
+  font-size: 11px;
+  cursor: pointer;
+  text-align: center;
+}
+.more-btn:hover { background: #eef2ff; color: #2563eb; }
+
+.listing-section { margin-top: 14px; }
+
+.empty-msg {
+  color: #ccc;
+  font-size: 12px;
+  text-align: center;
+  padding: 8px 0;
+}
+
+.listing-row { cursor: pointer; }
+.listing-row:active { background: #f0f4ff; }
+.listing-detail {
+  display: none;
+  background: #f8f9fb;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin: 4px 0 8px;
+  font-size: 12px;
+  color: #555;
+  line-height: 1.6;
+}
+.listing-detail .detail-item { margin-bottom: 2px; }
+.listing-detail .detail-label { color: #999; margin-right: 4px; }
+.bottom-space { height: 40px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <h1>수지구청역 관심 아파트</h1>
+    <button class="map-toggle-header hidden" id="mapOpenBtn" onclick="toggleMap()">지도 보기</button>
+  </div>
+  <div class="sub">2026년 실거래가 기준 · 풍덕천동</div>
+</div>
+
+<div class="map-container" id="mapContainer">
+  <img id="mapImage" src="" alt="단지 지도" style="width:100%;display:block;">
+</div>
+<button class="map-toggle-bottom" id="mapCloseBtn" onclick="toggleMap()">지도 접기</button>
+
+<div class="filter-section">
+  <div class="filter-bar" id="complexFilter"></div>
+  <div class="condition-bar" id="condFilter">
+    <div class="cond-chip active" data-cond="nolow">저층제외</div>
+  </div>
+</div>
+
+<div id="cards"></div>
+<div class="bottom-space"></div>
+
+<script>
+const DATA = __DATA__;
+
+// 색상: 소형(전용 80㎡ 미만) → 빨강, 대형(80㎡ 이상) → 파랑
+function getColor(area) {
+  return area < 80 ? '#f87171' : '#2563eb';
+}
+
+// 상태
+let activeComplex = '신정마을주공1';
+let conditions = { noLow: true };
+
+// === 초기 렌더링 ===
+function init() {
+  renderComplexFilter();
+  renderCards();
+  bindCondFilter();
+  updateMap();
+  applyFilters();
+}
+
+function renderComplexFilter() {
+  const bar = document.getElementById('complexFilter');
+  let html = '';
+  DATA.forEach(c => {
+    const isActive = c.name === '신정마을주공1' ? ' active' : '';
+    html += `<div class="filter-chip${isActive}" data-filter="${c.name}">${c.filterKey}</div>`;
+  });
+  bar.innerHTML = html;
+
+  bar.addEventListener('click', (e) => {
+    const chip = e.target.closest('.filter-chip');
+    if (!chip) return;
+    bar.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    activeComplex = chip.dataset.filter;
+    applyFilters();
+  });
+}
+
+function bindCondFilter() {
+  const bar = document.getElementById('condFilter');
+  bar.addEventListener('click', (e) => {
+    const chip = e.target.closest('.cond-chip');
+    if (!chip) return;
+    chip.classList.toggle('active');
+    conditions.noLow = chip.classList.contains('active');
+    applyFilters();
+  });
+}
+
+function filterTrade(t) {
+  if (conditions.noLow && t.floor < 5) return false;
+  return true;
+}
+
+function applyFilters() {
+  // Update map
+  updateMap();
+
+  // Show/hide cards
+  document.querySelectorAll('.card').forEach(card => {
+    card.classList.toggle('hidden', card.dataset.complex !== activeComplex);
+  });
+
+  // Filter rows in each card (매물은 저층제외 미적용)
+  document.querySelectorAll('.trade-table tr').forEach(row => {
+    if (row.classList.contains('detail-row')) return;
+    if (row.classList.contains('listing-row')) return; // 매물은 항상 표시
+    const area = parseFloat(row.dataset.area);
+    const floor = parseInt(row.dataset.floor);
+    const t = { area, floor };
+    row.style.display = filterTrade(t) ? '' : 'none';
+  });
+
+  // Update type section visibility
+  document.querySelectorAll('.type-section').forEach(sec => {
+    const rows = sec.querySelectorAll('.trade-table tr');
+    if (rows.length === 0) return;
+    const anyVisible = [...rows].some(r => r.style.display !== 'none');
+    sec.style.display = anyVisible ? '' : 'none';
+  });
+
+  // Update more buttons
+  document.querySelectorAll('.more-btn').forEach(btn => {
+    const section = btn.closest('.type-section') || btn.closest('.trades-container') || btn.closest('.listing-container');
+    if (section) resetMoreBtn(btn, section);
+  });
+
+  // Update charts
+  updateCharts();
+}
+
+function resetMoreBtn(btn, container) {
+  const rows = [...container.querySelectorAll('.trade-table tr')].filter(r => !r.classList.contains('detail-row') && r.style.display !== 'none');
+  btn.dataset.expanded = 'false';
+  btn.textContent = `더보기 (${Math.max(0, rows.length - 5)}건)`;
+  rows.forEach((r, i) => {
+    if (i >= 5) r.style.display = 'none';
+  });
+  btn.style.display = rows.length > 5 ? '' : 'none';
+}
+
+// === 카드 렌더링 ===
+function renderCards() {
+  const container = document.getElementById('cards');
+  let html = '';
+
+  DATA.forEach((c, ci) => {
+    html += `<div class="card" data-complex="${c.name}">`;
+    html += `<div class="card-title-row">`;
+    html += `<span class="name">${c.label} <span class="meta">(${c.units.toLocaleString()}세대, ${c.year}년)</span></span>`;
+    html += `<span class="walk">도보 ${c.walk}분</span>`;
+    html += `</div>`;
+
+    // Chart
+    html += `<div class="chart-container"><canvas id="chart-${ci}"></canvas></div>`;
+
+    // 실거래 내역
+    // 실거래 내역 - 좌우 분할
+    const small = c.areaGroups.filter(g => g.area < 81); // 59타입
+    const large = c.areaGroups.filter(g => g.area >= 80); // 84타입
+
+    html += `<div class="section-title">실거래 내역</div>`;
+    html += `<div class="trades-split">`;
+
+    // 왼쪽: 59타입
+    html += `<div class="trades-col col-59">`;
+    if (small.length > 0) {
+      small.forEach(g => {
+        html += `<div class="type-section">`;
+        html += `<div class="type-label type-59">59타입</div>`;
+        html += `<table class="trade-table">`;
+        g.items.forEach(t => {
+          html += `<tr data-area="${t.area}" data-floor="${t.floor}">`;
+          html += `<td class="date">${t.date}</td>`;
+          html += `<td class="floor">${t.floor}층</td>`;
+          html += `<td class="amount">${t.priceLabel}</td>`;
+          html += `</tr>`;
+        });
+        html += `</table>`;
+        html += `</div>`;
+      });
+    } else {
+      html += `<div class="type-section">`;
+      html += `<div class="type-label type-59">59타입</div>`;
+      html += `<div class="empty-msg">거래 없음</div>`;
+      html += `</div>`;
+    }
+    html += `</div>`;
+
+    // 오른쪽: 84타입
+    html += `<div class="trades-col col-84">`;
+    if (large.length > 0) {
+      large.forEach(g => {
+        html += `<div class="type-section">`;
+        html += `<div class="type-label type-84">84타입</div>`;
+        html += `<table class="trade-table">`;
+        g.items.forEach(t => {
+          html += `<tr data-area="${t.area}" data-floor="${t.floor}">`;
+          html += `<td class="date">${t.date}</td>`;
+          html += `<td class="floor">${t.floor}층</td>`;
+          html += `<td class="amount">${t.priceLabel}</td>`;
+          html += `</tr>`;
+        });
+        html += `</table>`;
+        html += `</div>`;
+      });
+    } else {
+      html += `<div class="type-section">`;
+      html += `<div class="type-label type-84">84타입</div>`;
+      html += `<div class="empty-msg">거래 없음</div>`;
+      html += `</div>`;
+    }
+    html += `</div>`;
+    html += `</div>`; // trades-split
+
+    // 매물 - 좌우 분할 (59타입 / 84타입)
+    html += `<div class="listing-section">`;
+    html += `<div class="section-title">매물</div>`;
+    if (c.listings && c.listings.length > 0) {
+      const listSmall = c.listings.filter(l => l.area < 81);
+      const listLarge = c.listings.filter(l => l.area >= 80);
+
+      html += `<div class="trades-split">`;
+
+      // 왼쪽: 59타입 매물
+      html += `<div class="trades-col col-59">`;
+      if (listSmall.length > 0) {
+        html += `<div class="type-section">`;
+        html += `<div class="type-label type-59">59타입</div>`;
+        html += `<table class="trade-table">`;
+        listSmall.forEach((l, li) => {
+          const details = (l.floorEntries || []).map(e => {
+            const date = e.confirmDate ? e.confirmDate.slice(4,6)+'.'+e.confirmDate.slice(6,8) : '';
+            return { date, direction: e.direction, description: e.description, floor: e.floor, dong: e.dong };
+          });
+          const detailsJson = JSON.stringify(details).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+          html += `<tr data-area="${l.area}" data-floor="${l.floor}" class="listing-row" onclick="toggleDetail(this)" data-details="${detailsJson}">`;
+          html += `<td class="date"><span style="color:#16a34a;font-size:14px;font-weight:bold">ⓘ</span></td>`;
+          html += `<td class="floor">${l.floorLabel || l.floor + '층'}</td>`;
+          html += `<td class="amount">${l.priceLabel}</td>`;
+          html += `</tr>`;
+          html += `<tr class="detail-row" style="display:none"><td colspan="3"><div class="listing-detail"></div></td></tr>`;
+        });
+        html += `</table>`;
+        html += `</div>`;
+      } else {
+        html += `<div class="type-section">`;
+        html += `<div class="type-label type-59">59타입</div>`;
+        html += `<div class="empty-msg">매물 없음</div>`;
+        html += `</div>`;
+      }
+      html += `</div>`;
+
+      // 오른쪽: 84타입 매물
+      html += `<div class="trades-col col-84">`;
+      if (listLarge.length > 0) {
+        html += `<div class="type-section">`;
+        html += `<div class="type-label type-84">84타입</div>`;
+        html += `<table class="trade-table">`;
+        listLarge.forEach((l, li) => {
+          const details = (l.floorEntries || []).map(e => {
+            const date = e.confirmDate ? e.confirmDate.slice(4,6)+'.'+e.confirmDate.slice(6,8) : '';
+            return { date, direction: e.direction, description: e.description, floor: e.floor, dong: e.dong };
+          });
+          const detailsJson = JSON.stringify(details).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+          html += `<tr data-area="${l.area}" data-floor="${l.floor}" class="listing-row" onclick="toggleDetail(this)" data-details="${detailsJson}">`;
+          html += `<td class="date"><span style="color:#16a34a;font-size:14px;font-weight:bold">ⓘ</span></td>`;
+          html += `<td class="floor">${l.floorLabel || l.floor + '층'}</td>`;
+          html += `<td class="amount">${l.priceLabel}</td>`;
+          html += `</tr>`;
+          html += `<tr class="detail-row" style="display:none"><td colspan="3"><div class="listing-detail"></div></td></tr>`;
+        });
+        html += `</table>`;
+        html += `</div>`;
+      } else {
+        html += `<div class="type-section">`;
+        html += `<div class="type-label type-84">84타입</div>`;
+        html += `<div class="empty-msg">매물 없음</div>`;
+        html += `</div>`;
+      }
+      html += `</div>`;
+
+      html += `</div>`; // trades-split
+    } else {
+      html += `<div class="empty-msg">등록된 매물이 없습니다</div>`;
+    }
+    html += `</div>`;
+
+    html += `</div>`;
+  });
+
+  container.innerHTML = html;
+
+  // 차트 초기화
+  DATA.forEach((c, ci) => initChart(ci, c));
+}
+
+function toggleMore(btn) {
+  const section = btn.closest('.type-section') || btn.closest('.listing-container');
+  const rows = [...section.querySelectorAll('.trade-table tr')].filter(r => !r.classList.contains('detail-row'));
+  const expanded = btn.dataset.expanded === 'true';
+
+  if (expanded) {
+    rows.forEach((r, i) => { if (i >= 5) r.style.display = 'none'; });
+    btn.dataset.expanded = 'false';
+    btn.textContent = `더보기 (${rows.length - 5}건)`;
+  } else {
+    rows.forEach(r => r.style.display = '');
+    btn.dataset.expanded = 'true';
+    btn.textContent = '접기';
+  }
+}
+
+// === 차트 ===
+const charts = [];
+
+function initChart(ci, complexData) {
+  const ctx = document.getElementById(`chart-${ci}`).getContext('2d');
+  const datasets = buildDatasets(complexData);
+
+  charts[ci] = new Chart(ctx, {
+    type: 'scatter',
+    data: { datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        x: {
+          type: 'linear',
+          title: { display: false },
+          ticks: {
+            callback: v => {
+              if (Number.isInteger(v) && v >= 1 && v <= 12) {
+                return v + '월';
+              }
+              return '';
+            },
+            stepSize: 1,
+            autoSkip: false,
+            font: { size: 11 },
+            color: '#666',
+          },
+          min: 0.5,
+          max: Math.max(3.5, new Date().getMonth() + 1.5),
+          grid: { color: '#f0f0f0' },
+        },
+        y: {
+          title: { display: false },
+          ticks: {
+            callback: v => (v / 10000) + '억',
+          },
+          grid: { color: '#f0f0f0' },
+        },
+      },
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: { usePointStyle: true, pointStyle: 'circle', boxWidth: 8, font: { size: 10 }, padding: 8 },
+        },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => {
+              const d = ctx.raw;
+              return `${d.date} · ${d.areaRaw}㎡ · ${d.floor}층 · ${d.priceLabel}`;
+            },
+          },
+        },
+      },
+    },
+  });
+}
+
+function buildDatasets(complexData) {
+  const datasets = [];
+  const areaTypes = [...new Set(complexData.trades.map(t => Math.round(t.area)))].sort((a, b) => a - b);
+
+  areaTypes.forEach((areaType) => {
+    const color = getColor(areaType);
+    const tradesOfType = complexData.trades.filter(t => Math.round(t.area) === areaType);
+
+    // 5층 이상
+    const highFloor = tradesOfType.filter(t => t.floor >= 5 && filterTrade(t));
+    // 5층 미만
+    const lowFloor = tradesOfType.filter(t => t.floor < 5 && filterTrade(t));
+
+    if (highFloor.length > 0) {
+      datasets.push({
+        label: `${areaType}㎡ 5층+`,
+        data: highFloor.map(t => ({
+          x: parseMonth(t.date),
+          y: t.price,
+          date: t.date,
+          areaRaw: t.area,
+          floor: t.floor,
+          priceLabel: t.priceLabel,
+        })),
+        backgroundColor: color,
+        borderColor: color,
+        pointRadius: 4.5,
+        pointHoverRadius: 6,
+      });
+    }
+
+    if (lowFloor.length > 0 && !conditions.noLow) {
+      datasets.push({
+        label: `${areaType}㎡ ~4층`,
+        data: lowFloor.map(t => ({
+          x: parseMonth(t.date),
+          y: t.price,
+          date: t.date,
+          areaRaw: t.area,
+          floor: t.floor,
+          priceLabel: t.priceLabel,
+        })),
+        backgroundColor: 'transparent',
+        borderColor: color,
+        borderWidth: 2,
+        pointRadius: 4.5,
+        pointHoverRadius: 6,
+      });
+    }
+  });
+
+  return datasets;
+}
+
+function parseMonth(dateStr) {
+  if (!dateStr || !dateStr.includes('.')) return 0;
+  const parts = dateStr.split('.');
+  const month = parseInt(parts[0]) || 0;
+  const day = parseInt(parts[1]) || 1;
+  const daysInMonth = [0,31,28,31,30,31,30,31,31,30,31,30,31];
+  return month + (day - 1) / (daysInMonth[month] || 30);
+}
+
+function updateCharts() {
+  DATA.forEach((c, ci) => {
+    if (!charts[ci]) return;
+    const datasets = buildDatasets(c);
+    charts[ci].data.datasets = datasets;
+    charts[ci].update();
+  });
+}
+
+// === 지도 ===
+// 단지별 지도 이미지 매핑
+const MAP_IMAGES = __MAP_IMAGES__;
+
+function updateMap() {
+  const img = document.getElementById('mapImage');
+  img.src = MAP_IMAGES[activeComplex] || MAP_IMAGES['신정마을주공1'];
+}
+
+function toggleMap() {
+  const container = document.getElementById('mapContainer');
+  const openBtn = document.getElementById('mapOpenBtn');
+  const closeBtn = document.getElementById('mapCloseBtn');
+  const isVisible = !container.classList.contains('hidden');
+
+  if (isVisible) {
+    container.classList.add('hidden');
+    closeBtn.classList.add('hidden');
+    openBtn.classList.remove('hidden');
+  } else {
+    container.classList.remove('hidden');
+    closeBtn.classList.remove('hidden');
+    openBtn.classList.add('hidden');
+  }
+}
+
+// === 매물 상세 토글 ===
+function toggleDetail(tr) {
+  const detailRow = tr.nextElementSibling;
+  if (!detailRow || !detailRow.classList.contains('detail-row')) return;
+  const panel = detailRow.querySelector('.listing-detail');
+  const isOpen = detailRow.style.display !== 'none';
+
+  if (isOpen) {
+    detailRow.style.display = 'none';
+    panel.style.display = 'none';
+    return;
+  }
+
+  const details = JSON.parse(tr.dataset.details);
+  let html = '';
+  details.forEach(d => {
+    html += '<div style="margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid #eee;">';
+    if (d.dong) html += `<div class="detail-item"><span class="detail-label">위치</span>${d.floor}층 ${d.dong}</div>`;
+    if (d.date) html += `<div class="detail-item"><span class="detail-label">확인</span>${d.date}</div>`;
+    if (d.direction) html += `<div class="detail-item"><span class="detail-label">방향</span>${d.direction}</div>`;
+    if (d.description) html += `<div class="detail-item"><span class="detail-label">설명</span>${d.description}</div>`;
+    html += '</div>';
+  });
+  panel.innerHTML = html;
+  detailRow.style.display = '';
+  panel.style.display = 'block';
+}
+
+// === 시작 ===
+init();
+</script>
+</body>
+</html>
