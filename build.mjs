@@ -198,22 +198,14 @@ const complexData = targetNames.map(name => {
   };
 });
 
-// === 지도 이미지 Base64 인코딩 ===
-const mapFileToComplex = {
-  '주공1단지.png': '신정마을주공1',
-  '주공9단지.png': '용인수지신정마을9단지',
-  '상록7단지.png': '신정7단지(상록)공무원',
-  '한국.png': '한국',
-  '현대.png': '현대',
-  '한성.png': '한성',
-  '동부.png': '동부',
-  '동보.png': '동보',
-};
-
+// === 지도 이미지 Base64 인코딩 (resources/maps/ 폴더에서 자동 로딩) ===
 const mapImages = {};
-for (const [filename, complexName] of Object.entries(mapFileToComplex)) {
-  const imgBuf = readFileSync(`resources/${filename}`);
-  mapImages[complexName] = `data:image/png;base64,${imgBuf.toString('base64')}`;
+for (const name of targetNames) {
+  const mapPath = `resources/maps/${name}.png`;
+  if (existsSync(mapPath)) {
+    const imgBuf = readFileSync(mapPath);
+    mapImages[name] = `data:image/png;base64,${imgBuf.toString('base64')}`;
+  }
 }
 
 // === HTML 생성 ===
