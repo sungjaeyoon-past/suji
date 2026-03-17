@@ -211,9 +211,12 @@ for (const name of targetNames) {
 // === HTML 생성 ===
 const template = readFileSync('template.html', 'utf-8');
 
+const now = new Date();
+const updateDate = `${now.getFullYear()}.${String(now.getMonth()+1).padStart(2,'0')}.${String(now.getDate()).padStart(2,'0')}`;
 const html = template
   .replace('__DATA__', JSON.stringify(complexData, null, 2))
-  .replace('__MAP_IMAGES__', JSON.stringify(mapImages));
+  .replace('__MAP_IMAGES__', JSON.stringify(mapImages))
+  .replace('__UPDATE_DATE__', updateDate);
 writeFileSync('index.html', html, 'utf-8');
 
 console.log(`Built index.html with ${complexData.length} complexes`);
