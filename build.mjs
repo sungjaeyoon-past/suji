@@ -6,10 +6,8 @@ const complexMeta = {
   // 수지구청역
   '신정마을주공1': { label: '신정마을주공1', filterKey: '주공1', units: 1044, year: 2000, station: '수지구청' },
   '용인수지신정마을9단지': { label: '신정9단지', filterKey: '9단지', units: 812, year: 2000, station: '수지구청' },
-  '신정7단지(상록)공무원': { label: '신정7단지(상록)', filterKey: '상록7', units: 670, year: 2000, station: '수지구청' },
   '한국': { label: '한국', filterKey: '한국', units: 416, year: 1995, station: '수지구청' },
   '현대': { label: '현대', filterKey: '현대', units: 1168, year: 1994, station: '수지구청' },
-  '한성': { label: '한성', filterKey: '한성', units: 774, year: 1995, station: '수지구청' },
   '동부': { label: '동부', filterKey: '동부', units: 612, year: 1995, station: '수지구청' },
   '동보': { label: '동보', filterKey: '동보', units: 470, year: 1995, station: '수지구청' },
   // 동천역
