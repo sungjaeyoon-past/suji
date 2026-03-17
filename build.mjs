@@ -11,7 +11,7 @@ const complexMeta = {
   '동부': { label: '동부', filterKey: '동부', units: 612, year: 1995, station: '수지구청', walk: 16 },
   '동보': { label: '동보', filterKey: '동보', units: 470, year: 1995, station: '수지구청', walk: 5 },
   // 동천역
-  '동천마을현대홈타운1차': { label: '현대홈타운1', filterKey: '홈타운1', units: 1128, year: 2002, station: '동천', walk: 3 },
+  '동천마을현대홈타운1차': { label: '현대홈타운1', filterKey: '홈타운1', units: 466, year: 2002, station: '동천', walk: 3 },
   '동천마을현대홈타운2차': { label: '현대홈타운2', filterKey: '홈타운2', units: 1128, year: 2002, station: '동천', walk: 12 },
   '동천디이스트': { label: '동천디이스트', filterKey: '디이스트', units: 1334, year: 2020, station: '동천', walk: 9 },
   '써니벨리': { label: '써니벨리', filterKey: '써니벨리', units: 627, year: 2004, station: '동천', walk: 5 },
