@@ -5,6 +5,7 @@ const steps = [
   { name: '네이버 매물 수집', cmd: 'node scrape-naver.mjs' },
   { name: '아실 매물 수집', cmd: 'node scrape-asil.mjs' },
   { name: '매물 병합', cmd: 'node merge-listings.mjs' },
+  { name: '지도 캡처', cmd: 'node capture-maps.mjs' },
   { name: 'HTML 빌드', cmd: 'node build.mjs' },
 ];
 

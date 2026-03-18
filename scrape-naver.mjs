@@ -5,7 +5,6 @@ const COMPLEXES = [
   // 수지구청역
   { name: '신정마을주공1', complexNo: '3745' },
   { name: '용인수지신정마을9단지', complexNo: '3746' },
-  { name: '신정7단지(상록)공무원', complexNo: '11231' },
   { name: '한국', complexNo: '3741' },
   { name: '현대', complexNo: '2225' },
   { name: '동부', complexNo: '3740' },
