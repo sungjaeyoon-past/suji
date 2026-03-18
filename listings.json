@@ -42,22 +42,22 @@
     },
     {
       "complexName": "신정마을주공1",
-      "price": "12억",
-      "area": 83,
-      "dong": "104동",
-      "floor": "중/20",
-      "direction": "남동향",
-      "description": "세안고 거실방확장 화장실씽크대수리 로얄동 수지구청초역세권 생활편리",
-      "source": "naver"
-    },
-    {
-      "complexName": "신정마을주공1",
       "price": "12억 8,000",
       "area": 83,
       "dong": "111동",
       "floor": "6/20",
       "direction": "남동향",
       "description": "입주일협의,샷시,확장,최근특올수리,시스템에어컨",
+      "source": "naver"
+    },
+    {
+      "complexName": "신정마을주공1",
+      "price": "12억",
+      "area": 83,
+      "dong": "104동",
+      "floor": "중/20",
+      "direction": "남동향",
+      "description": "세안고 거실방확장 화장실씽크대수리 로얄동 수지구청초역세권 생활편리",
       "source": "naver"
     },
     {
@@ -94,6 +94,46 @@
   "용인수지신정마을9단지": [
     {
       "complexName": "용인수지신정마을9단지",
+      "price": "10억 3,000",
+      "area": 72,
+      "dong": "905동",
+      "floor": "8/18",
+      "direction": "남동향",
+      "description": "올수리,탄천전망,주차여유,초역세권,공원,4월초부터입주협의",
+      "source": "naver"
+    },
+    {
+      "complexName": "용인수지신정마을9단지",
+      "price": "9억",
+      "area": 72,
+      "dong": "901동",
+      "floor": "2/18",
+      "direction": "남동향",
+      "description": "월세안고, 기본, 신분당선초역세권, 공원탄천도서관인접",
+      "source": "naver"
+    },
+    {
+      "complexName": "용인수지신정마을9단지",
+      "price": "10억 6,000",
+      "area": 72,
+      "dong": "901동",
+      "floor": "10/18",
+      "direction": "남동향",
+      "description": "샷시포함올수리 거실확장 중문 수지구청역역세권",
+      "source": "naver"
+    },
+    {
+      "complexName": "용인수지신정마을9단지",
+      "price": "10억",
+      "area": 72,
+      "dong": "908동",
+      "floor": "15/18",
+      "direction": "남동향",
+      "description": "정상입주, 로얄동층, 신분당선초역세권, 공원탄천도서관인접, 초품아",
+      "source": "naver"
+    },
+    {
+      "complexName": "용인수지신정마을9단지",
       "price": "10억 5,000",
       "area": 72,
       "dong": "901동",
@@ -124,42 +164,12 @@
     },
     {
       "complexName": "용인수지신정마을9단지",
-      "price": "10억 6,000",
-      "area": 72,
-      "dong": "901동",
-      "floor": "10/18",
-      "direction": "남동향",
-      "description": "샷시포함올수리 거실확장 중문 수지구청역역세권",
-      "source": "naver"
-    },
-    {
-      "complexName": "용인수지신정마을9단지",
-      "price": "9억",
-      "area": 72,
-      "dong": "901동",
-      "floor": "2/18",
-      "direction": "남동향",
-      "description": "월세안고, 기본, 신분당선초역세권, 공원탄천도서관인접",
-      "source": "naver"
-    },
-    {
-      "complexName": "용인수지신정마을9단지",
       "price": "10억 3,000",
       "area": 72,
       "dong": "905동",
-      "floor": "8/18",
+      "floor": "16/18",
       "direction": "남동향",
-      "description": "올수리,탄천전망,주차여유,초역세권,공원,4월초부터입주협의",
-      "source": "naver"
-    },
-    {
-      "complexName": "용인수지신정마을9단지",
-      "price": "10억",
-      "area": 72,
-      "dong": "908동",
-      "floor": "15/18",
-      "direction": "남동향",
-      "description": "정상입주, 로얄동층, 신분당선초역세권, 공원탄천도서관인접, 초품아",
+      "description": "정상,전체올수리,샷시,수지구청역세권,탄천전망,지하주차장 굿",
       "source": "naver"
     },
     {
@@ -170,16 +180,6 @@
       "floor": "13/18",
       "direction": "남동향",
       "description": "정상입주,로얄동,올수리,깨끗",
-      "source": "naver"
-    },
-    {
-      "complexName": "용인수지신정마을9단지",
-      "price": "10억 3,000",
-      "area": 72,
-      "dong": "905동",
-      "floor": "16/18",
-      "direction": "남동향",
-      "description": "정상,전체올수리,샷시,수지구청역세권,탄천전망,지하주차장 굿",
       "source": "naver"
     },
     {
@@ -290,138 +290,6 @@
       "floor": "중/18",
       "direction": "남동향",
       "description": "세안고, 올수리, 신분당선초역세권, 전망트이고환한집.",
-      "source": "naver"
-    }
-  ],
-  "신정7단지(상록)공무원": [
-    {
-      "complexName": "신정7단지(상록)공무원",
-      "price": "13억 9,000",
-      "area": 109,
-      "dong": "704동",
-      "floor": "19/20",
-      "direction": "남동향",
-      "description": "세안고27년9월말, 외부샷시교체,방1확장,내부일부수리,로얄동로얄층",
-      "source": "naver"
-    },
-    {
-      "complexName": "신정7단지(상록)공무원",
-      "price": "14억",
-      "area": 109,
-      "dong": "701동",
-      "floor": "16/20",
-      "direction": "남동향",
-      "description": "예전 올수리 방1 주방확장 초품아 학군최고 신분당선역세권",
-      "source": "naver"
-    },
-    {
-      "complexName": "신정7단지(상록)공무원",
-      "price": "10억 4,000",
-      "area": 81,
-      "dong": "705동",
-      "floor": "2/20",
-      "direction": "남동향",
-      "description": "주인직접의뢰.로얄동,즉시입주가능.초급매",
-      "source": "naver"
-    },
-    {
-      "complexName": "신정7단지(상록)공무원",
-      "price": "11억 2,000",
-      "area": 81,
-      "dong": "706동",
-      "floor": "5/20",
-      "direction": "남동향",
-      "description": "11월입주가능, 수리되어 깔끔해요. 정평초학군, 신분당선초역세권",
-      "source": "naver"
-    },
-    {
-      "complexName": "신정7단지(상록)공무원",
-      "price": "13억 7,000",
-      "area": 109,
-      "dong": "702동",
-      "floor": "13/20",
-      "direction": "남동향",
-      "description": "27년1월초기본,화장실수리.신발장교체,결로 곰팡이 없음.",
-      "source": "naver"
-    },
-    {
-      "complexName": "신정7단지(상록)공무원",
-      "price": "13억 5,000",
-      "area": 109,
-      "dong": "702동",
-      "floor": "2/20",
-      "direction": "남동향",
-      "description": "33P, 기본, 정평초, 수지구청역세권",
-      "source": "naver"
-    },
-    {
-      "complexName": "신정7단지(상록)공무원",
-      "price": "14억 2,000",
-      "area": 109,
-      "dong": "704동",
-      "floor": "9/20",
-      "direction": "남동향",
-      "description": "입주협의가 샷시포함 특올수리 거실방1주방 확장 로얄동로얄층",
-      "source": "naver"
-    },
-    {
-      "complexName": "신정7단지(상록)공무원",
-      "price": "14억",
-      "area": 109,
-      "dong": "704동",
-      "floor": "4/20",
-      "direction": "남동향",
-      "description": "세안고2026년7월,로얄동,일부수리",
-      "source": "naver"
-    },
-    {
-      "complexName": "신정7단지(상록)공무원",
-      "price": "11억 3,000",
-      "area": 81,
-      "dong": "705동",
-      "floor": "8/20",
-      "direction": "남동향",
-      "description": "세안고2027년7월, 로얄동 전망굿, 깨끗합니다.",
-      "source": "naver"
-    },
-    {
-      "complexName": "신정7단지(상록)공무원",
-      "price": "13억 8,000",
-      "area": 109,
-      "dong": "701동",
-      "floor": "17/20",
-      "direction": "남동향",
-      "description": "정상,전망굿,기본,초중고인접,수지구청역세권",
-      "source": "naver"
-    },
-    {
-      "complexName": "신정7단지(상록)공무원",
-      "price": "10억 3,000",
-      "area": 81,
-      "dong": "706동",
-      "floor": "1/20",
-      "direction": "남동향",
-      "description": "올수리 최근 지인샷시 중문 교체 학군우수 수지구청역 도보5분 세안고",
-      "source": "naver"
-    },
-    {
-      "complexName": "신정7단지(상록)공무원",
-      "price": "14억",
-      "area": 109,
-      "dong": "701동",
-      "floor": "6/20",
-      "direction": "남동향",
-      "description": "신정7단지상록",
-      "source": "naver"
-    },
-    {
-      "complexName": "신정7단지(상록)공무원",
-      "price": "11억 9,000",
-      "area": 81,
-      "dong": "705동",
-      "floor": "19/20",
-      "direction": "남동향",
-      "description": "6월이 2년 됨,샷시외 확장 올수리됨,",
       "source": "naver"
     }
   ],
@@ -590,12 +458,12 @@
     },
     {
       "complexName": "현대",
-      "price": "9억 5,000",
+      "price": "9억 9,000",
       "area": 74,
-      "dong": "103동",
-      "floor": "5/15",
-      "direction": "남서향",
-      "description": "기본, 정상입주협의, 수지구청역 초역세권, 명문학군,편의시설다양",
+      "dong": "101동",
+      "floor": "9/15",
+      "direction": "남동향",
+      "description": "로열동  로열층 내부수리 했었던 집 수지구청역 도보5분 초역세권",
       "source": "naver"
     },
     {
@@ -610,32 +478,12 @@
     },
     {
       "complexName": "현대",
-      "price": "9억 9,000",
-      "area": 74,
-      "dong": "101동",
-      "floor": "9/15",
-      "direction": "남동향",
-      "description": "로열동  로열층 내부수리 했었던 집 수지구청역 도보5분 초역세권",
-      "source": "naver"
-    },
-    {
-      "complexName": "현대",
-      "price": "12억",
+      "price": "11억 8,000",
       "area": 104,
-      "dong": "105동",
-      "floor": "9/15",
-      "direction": "남동향",
-      "description": "로열동 내부수리 전망트여 시원해요  신분당선도보5분  생활인프라최고",
-      "source": "naver"
-    },
-    {
-      "complexName": "현대",
-      "price": "12억",
-      "area": 104,
-      "dong": "111동",
-      "floor": "8/15",
-      "direction": "남동향",
-      "description": "입주협의, 부분수리된 집, 수지구청역 가까운 동, 로얄동",
+      "dong": "104동",
+      "floor": "7/15",
+      "direction": "남서향",
+      "description": "입주급매 앞 뒤 트여 바람 잘 통하고 밝은 집  살기 좋아요",
       "source": "naver"
     },
     {
@@ -650,12 +498,22 @@
     },
     {
       "complexName": "현대",
-      "price": "11억 8,000",
+      "price": "12억",
       "area": 104,
-      "dong": "104동",
-      "floor": "7/15",
-      "direction": "남서향",
-      "description": "입주급매 앞 뒤 트여 바람 잘 통하고 밝은 집  살기 좋아요",
+      "dong": "109동",
+      "floor": "2/15",
+      "direction": "남동향",
+      "description": "입주가능  중간샷시설치 중문설치 내부수리  로열동 저층 햇살 좋아요",
+      "source": "naver"
+    },
+    {
+      "complexName": "현대",
+      "price": "12억",
+      "area": 104,
+      "dong": "105동",
+      "floor": "9/15",
+      "direction": "남동향",
+      "description": "로열동 내부수리 전망트여 시원해요  신분당선도보5분  생활인프라최고",
       "source": "naver"
     },
     {
@@ -672,10 +530,10 @@
       "complexName": "현대",
       "price": "12억",
       "area": 104,
-      "dong": "109동",
-      "floor": "2/15",
+      "dong": "111동",
+      "floor": "8/15",
       "direction": "남동향",
-      "description": "입주가능  중간샷시설치 중문설치 내부수리  로열동 저층 햇살 좋아요",
+      "description": "입주협의, 부분수리된 집, 수지구청역 가까운 동, 로얄동",
       "source": "naver"
     },
     {
@@ -720,6 +578,16 @@
     },
     {
       "complexName": "현대",
+      "price": "9억 7,000",
+      "area": 74,
+      "dong": "101동",
+      "floor": "9/15",
+      "direction": "남동향",
+      "description": "예전수리된집, 10월말 입주가능",
+      "source": "naver"
+    },
+    {
+      "complexName": "현대",
       "price": "11억",
       "area": 104,
       "dong": "109동",
@@ -740,12 +608,12 @@
     },
     {
       "complexName": "현대",
-      "price": "9억 7,000",
-      "area": 74,
-      "dong": "101동",
-      "floor": "9/15",
+      "price": "12억",
+      "area": 104,
+      "dong": "112동",
+      "floor": "3/15",
       "direction": "남동향",
-      "description": "예전수리된집, 10월말 입주가능",
+      "description": "정상입주 입주일협의 수지구청역 초역세권",
       "source": "naver"
     },
     {
@@ -756,16 +624,6 @@
       "floor": "1/15",
       "direction": "남서향",
       "description": "세안고, 아이 키우기 좋아요. 동간 거리 넓고 조용한 동",
-      "source": "naver"
-    },
-    {
-      "complexName": "현대",
-      "price": "12억",
-      "area": 104,
-      "dong": "112동",
-      "floor": "3/15",
-      "direction": "남동향",
-      "description": "정상입주 입주일협의 수지구청역 초역세권",
       "source": "naver"
     },
     {
@@ -830,6 +688,16 @@
     },
     {
       "complexName": "현대",
+      "price": "9억 5,000",
+      "area": 74,
+      "dong": "103동",
+      "floor": "저/15",
+      "direction": "남서향",
+      "description": "22p,남서향,기본,상권학원가 이용편리해요.",
+      "source": "naver"
+    },
+    {
+      "complexName": "현대",
       "price": "13억",
       "area": 104,
       "dong": "107동",
@@ -890,72 +758,7 @@
       "source": "asil"
     }
   ],
-  "한성": [
-    {
-      "complexName": "한성",
-      "price": "11억 8,000",
-      "area": "77",
-      "areaExclusive": "77",
-      "dong": "104동",
-      "floor": "고층",
-      "direction": "",
-      "description": "입주권 승계매물 수지구청역 역세권 신축 선점하세요",
-      "source": "asil"
-    },
-    {
-      "complexName": "한성",
-      "price": "13억",
-      "area": "77",
-      "areaExclusive": "77",
-      "dong": "104동",
-      "floor": "9층",
-      "direction": "",
-      "description": "올수리 정상입주 6월19일입주",
-      "source": "asil"
-    },
-    {
-      "complexName": "한성",
-      "price": "12억 5,000",
-      "area": "77",
-      "areaExclusive": "77",
-      "dong": "101동",
-      "floor": "중층",
-      "direction": "",
-      "description": "역세권 재건축 신축 입주권 선점하세요 조합원 승계 귀한 입주매매",
-      "source": "asil"
-    }
-  ],
   "동부": [
-    {
-      "complexName": "동부",
-      "price": "8억 5,000",
-      "area": 78,
-      "dong": "104동",
-      "floor": "12/17",
-      "direction": "남동향",
-      "description": "R2, 주인거주, 올수리, 리모델링사업진행중",
-      "source": "naver"
-    },
-    {
-      "complexName": "동부",
-      "price": "8억 5,000",
-      "area": 78,
-      "dong": "103동",
-      "floor": "5/17",
-      "direction": "남동향",
-      "description": "협의가능 투자가치굿, 도보역세권, 리모델링단지",
-      "source": "naver"
-    },
-    {
-      "complexName": "동부",
-      "price": "8억 2,000",
-      "area": 78,
-      "dong": "102동",
-      "floor": "8/17",
-      "direction": "남동향",
-      "description": "입주급매 신분당선도보8분 내부수리됨 아파트뒤 도서관 소아병동입점",
-      "source": "naver"
-    },
     {
       "complexName": "동부",
       "price": "8억 5,000",
@@ -964,26 +767,6 @@
       "floor": "17/17",
       "direction": "남동향",
       "description": "방3 리모델링 사업 진행중 입주일협의 ",
-      "source": "naver"
-    },
-    {
-      "complexName": "동부",
-      "price": "9억 8,000",
-      "area": 78,
-      "dong": "102동",
-      "floor": "17/17",
-      "direction": "남동향",
-      "description": "R2, 주인거주, 특올수리, 리모델링사업진행중",
-      "source": "naver"
-    },
-    {
-      "complexName": "동부",
-      "price": "8억 7,000",
-      "area": 78,
-      "dong": "106동",
-      "floor": "2/17",
-      "direction": "남동향",
-      "description": "방3, 거실확장 및 특올수리, 집상태 최고",
       "source": "naver"
     },
     {
@@ -998,6 +781,16 @@
     },
     {
       "complexName": "동부",
+      "price": "8억 7,000",
+      "area": 78,
+      "dong": "106동",
+      "floor": "2/17",
+      "direction": "남동향",
+      "description": "방3, 거실확장 및 특올수리, 집상태 최고",
+      "source": "naver"
+    },
+    {
+      "complexName": "동부",
       "price": "8억 8,000",
       "area": 78,
       "dong": "103동",
@@ -1008,12 +801,62 @@
     },
     {
       "complexName": "동부",
+      "price": "9억 8,000",
+      "area": 78,
+      "dong": "102동",
+      "floor": "17/17",
+      "direction": "남동향",
+      "description": "R2, 주인거주, 특올수리, 리모델링 단지",
+      "source": "naver"
+    },
+    {
+      "complexName": "동부",
+      "price": "8억 5,000",
+      "area": 78,
+      "dong": "104동",
+      "floor": "2/17",
+      "direction": "남동향",
+      "description": "R2, 주인거주, 올수리, 리모델링 단지",
+      "source": "naver"
+    },
+    {
+      "complexName": "동부",
+      "price": "8억 5,000",
+      "area": 78,
+      "dong": "104동",
+      "floor": "12/17",
+      "direction": "남동향",
+      "description": "R2, 주인거주, 올수리, 리모델링 단지",
+      "source": "naver"
+    },
+    {
+      "complexName": "동부",
+      "price": "8억 2,000",
+      "area": 78,
+      "dong": "102동",
+      "floor": "8/17",
+      "direction": "남동향",
+      "description": "입주급매 신분당선도보8분 내부수리됨 아파트뒤 도서관 소아병동입점",
+      "source": "naver"
+    },
+    {
+      "complexName": "동부",
       "price": "9억",
       "area": 78,
       "dong": "101동",
       "floor": "6/17",
       "direction": "남동향",
       "description": "방3 리모델링 입주협의",
+      "source": "naver"
+    },
+    {
+      "complexName": "동부",
+      "price": "9억 2,000",
+      "area": 78,
+      "dong": "105동",
+      "floor": "11/17",
+      "direction": "남동향",
+      "description": "R3, 주인거주, 올수리, 리모델링 단지",
       "source": "naver"
     },
     {
@@ -1030,70 +873,10 @@
       "complexName": "동부",
       "price": "8억 5,000",
       "area": 78,
-      "dong": "104동",
-      "floor": "2/17",
-      "direction": "남동향",
-      "description": "R2, 주인거주, 올수리, 리모델링사업진행중",
-      "source": "naver"
-    },
-    {
-      "complexName": "동부",
-      "price": "9억 2,000",
-      "area": 78,
-      "dong": "105동",
-      "floor": "11/17",
-      "direction": "남동향",
-      "description": "R3, 주인거주,올수리,리모델링사업진행중",
-      "source": "naver"
-    },
-    {
-      "complexName": "동부",
-      "price": "8억 5,000",
-      "area": 78,
       "dong": "103동",
-      "floor": "16/17",
-      "direction": "남동향",
-      "description": "R2, 계단식,주인거주,로얄층,리모델링추진중",
-      "source": "naver"
-    },
-    {
-      "complexName": "동부",
-      "price": "8억 8,000",
-      "area": 78,
-      "dong": "106동",
-      "floor": "9/17",
-      "direction": "남동향",
-      "description": "R3, 계단식,주인거주,확장 특올수리,리모델링추진중",
-      "source": "naver"
-    },
-    {
-      "complexName": "동부",
-      "price": "8억 7,000",
-      "area": 78,
-      "dong": "106동",
-      "floor": "8/17",
-      "direction": "남동향",
-      "description": "R3, 로얄층, 올수리,세안고,리모델링추진중",
-      "source": "naver"
-    },
-    {
-      "complexName": "동부",
-      "price": "8억 7,000",
-      "area": 78,
-      "dong": "101동",
       "floor": "5/17",
       "direction": "남동향",
-      "description": "R3, 거실 방확장 올수리, 리모델링추진중",
-      "source": "naver"
-    },
-    {
-      "complexName": "동부",
-      "price": "8억 5,000",
-      "area": 78,
-      "dong": "106동",
-      "floor": "15/17",
-      "direction": "남동향",
-      "description": "R3, 계단식,주인거주, 로얄층, 리모델링추진중",
+      "description": "협의가능 투자가치굿, 도보역세권, 리모델링단지",
       "source": "naver"
     },
     {
@@ -1104,6 +887,46 @@
       "floor": "12/17",
       "direction": "남동향",
       "description": "방3화1, 계단식, 로얄동, 채광좋음",
+      "source": "naver"
+    },
+    {
+      "complexName": "동부",
+      "price": "8억 5,000",
+      "area": 78,
+      "dong": "106동",
+      "floor": "15/17",
+      "direction": "남동향",
+      "description": "R3, 주인거주, 로얄층, 리모델링 단지",
+      "source": "naver"
+    },
+    {
+      "complexName": "동부",
+      "price": "8억 8,000",
+      "area": 78,
+      "dong": "106동",
+      "floor": "9/17",
+      "direction": "남동향",
+      "description": "R3,주인거주,확장 특올수리,리모델링 단지",
+      "source": "naver"
+    },
+    {
+      "complexName": "동부",
+      "price": "8억 7,000",
+      "area": 78,
+      "dong": "101동",
+      "floor": "5/17",
+      "direction": "남동향",
+      "description": "R3, 거실 방확장 올수리, 리모델링 단지",
+      "source": "naver"
+    },
+    {
+      "complexName": "동부",
+      "price": "8억 5,000",
+      "area": 78,
+      "dong": "103동",
+      "floor": "16/17",
+      "direction": "남동향",
+      "description": "R2, 주인거주, 로얄층, 리모델링 단지",
       "source": "naver"
     },
     {
@@ -1121,9 +944,19 @@
       "price": "8억 7,000",
       "area": 78,
       "dong": "106동",
+      "floor": "8/17",
+      "direction": "남동향",
+      "description": "R3, 로얄층, 올수리,세안고,리모델링 단지",
+      "source": "naver"
+    },
+    {
+      "complexName": "동부",
+      "price": "8억 7,000",
+      "area": 78,
+      "dong": "106동",
       "floor": "11/17",
       "direction": "남동향",
-      "description": "R3, 계단식,주인거주,올수리,리모델링추진중",
+      "description": "R3, 주인거주, 올수리, 리모델링 단지",
       "source": "naver"
     },
     {
@@ -1131,9 +964,9 @@
       "price": "9억 2,000",
       "area": 78,
       "dong": "101동",
-      "floor": "10/17",
+      "floor": "8/17",
       "direction": "남동향",
-      "description": "방3화1, 채광좋음, 도보역세권, 일정등협의가능",
+      "description": "방3, 계단식, 샷시포함올수리, 채광좋음",
       "source": "naver"
     },
     {
@@ -1158,22 +991,22 @@
     },
     {
       "complexName": "동부",
+      "price": "9억 2,000",
+      "area": 78,
+      "dong": "101동",
+      "floor": "10/17",
+      "direction": "남동향",
+      "description": "방3화1, 채광좋음, 도보역세권, 일정등협의가능",
+      "source": "naver"
+    },
+    {
+      "complexName": "동부",
       "price": "9억",
       "area": 78,
       "dong": "102동",
       "floor": "6/17",
       "direction": "남동향",
       "description": "방2화1,  도보역세권, 채광좋음, 수리됨",
-      "source": "naver"
-    },
-    {
-      "complexName": "동부",
-      "price": "9억 2,000",
-      "area": 78,
-      "dong": "101동",
-      "floor": "8/17",
-      "direction": "남동향",
-      "description": "방3, 계단식, 샷시포함올수리, 채광좋음",
       "source": "naver"
     },
     {
@@ -1188,42 +1021,12 @@
     },
     {
       "complexName": "동부",
-      "price": "8억 3,000",
-      "area": 78,
-      "dong": "102동",
-      "floor": "2/17",
-      "direction": "남동향",
-      "description": "방2 계단식,주인거주,올수리,역세권",
-      "source": "naver"
-    },
-    {
-      "complexName": "동부",
       "price": "8억 7,000",
       "area": 78,
       "dong": "105동",
       "floor": "14/17",
       "direction": "남동향",
       "description": "방3 계단식,주인거주,로얄층,수리,전철역세권",
-      "source": "naver"
-    },
-    {
-      "complexName": "동부",
-      "price": "9억 3,000",
-      "area": 78,
-      "dong": "101동",
-      "floor": "13/17",
-      "direction": "남동향",
-      "description": "협의가능 투자가치굿, 우수인프라, 도보역세권",
-      "source": "naver"
-    },
-    {
-      "complexName": "동부",
-      "price": "8억 3,000",
-      "area": 78,
-      "dong": "105동",
-      "floor": "중/17",
-      "direction": "남동향",
-      "description": "꼭팔아요 급매 입주협의 방3  특올수리  초중고 역세권 선호하는동 강추",
       "source": "naver"
     },
     {
@@ -1238,12 +1041,32 @@
     },
     {
       "complexName": "동부",
+      "price": "8억 3,000",
+      "area": 78,
+      "dong": "105동",
+      "floor": "중/17",
+      "direction": "남동향",
+      "description": "꼭팔아요 급매 입주협의 방3  특올수리  초중고 역세권 선호하는동 강추",
+      "source": "naver"
+    },
+    {
+      "complexName": "동부",
       "price": "8억 7,000",
       "area": 78,
       "dong": "103동",
       "floor": "고/17",
       "direction": "남동향",
       "description": "방2화1, 계단식, 채광좋음, 도보역세권",
+      "source": "naver"
+    },
+    {
+      "complexName": "동부",
+      "price": "9억",
+      "area": 78,
+      "dong": "105동",
+      "floor": "고/17",
+      "direction": "남동향",
+      "description": "샷시 제외 특올수리이며 입주 가능하고 리모델링 추진 단지임",
       "source": "naver"
     },
     {
@@ -1258,12 +1081,12 @@
     },
     {
       "complexName": "동부",
-      "price": "9억",
+      "price": "9억 3,000",
       "area": 78,
-      "dong": "105동",
-      "floor": "고/17",
+      "dong": "101동",
+      "floor": "13/17",
       "direction": "남동향",
-      "description": "샷시 제외 특올수리이며 입주 가능하고 리모델링 추진 단지임",
+      "description": "협의가능 투자가치굿, 우수인프라, 도보역세권",
       "source": "naver"
     },
     {
@@ -1308,20 +1131,20 @@
     },
     {
       "complexName": "동부",
-      "price": "9억",
+      "price": "8억 5,000",
       "area": 78,
-      "dong": "102동",
-      "floor": "16/17",
+      "dong": "104동",
+      "floor": "5/17",
       "direction": "남동향",
       "description": "방2 계단식,주인거주,올수리,전철역 초중고10분내",
       "source": "naver"
     },
     {
       "complexName": "동부",
-      "price": "8억 5,000",
+      "price": "9억",
       "area": 78,
-      "dong": "104동",
-      "floor": "5/17",
+      "dong": "102동",
+      "floor": "16/17",
       "direction": "남동향",
       "description": "방2 계단식,주인거주,올수리,전철역 초중고10분내",
       "source": "naver"
@@ -1398,6 +1221,26 @@
     },
     {
       "complexName": "동부",
+      "price": "9억",
+      "area": 78,
+      "dong": "106동",
+      "floor": "7/17",
+      "direction": "남동향",
+      "description": "방3 계단식,주인거주,로얄층,수리,전철역세권",
+      "source": "naver"
+    },
+    {
+      "complexName": "동부",
+      "price": "8억 5,000",
+      "area": 78,
+      "dong": "101동",
+      "floor": "고/17",
+      "direction": "남동향",
+      "description": "방3 계단식,올수리,전망, 전철역세권",
+      "source": "naver"
+    },
+    {
+      "complexName": "동부",
       "price": "8억 5,000",
       "area": 78,
       "dong": "102동",
@@ -1414,26 +1257,6 @@
       "floor": "중/17",
       "direction": "남동향",
       "description": "입주협의 방3  최근올수리 초중고인접 도서관 메디칼센터 역세권 공원인접",
-      "source": "naver"
-    },
-    {
-      "complexName": "동부",
-      "price": "8억 5,000",
-      "area": 78,
-      "dong": "101동",
-      "floor": "고/17",
-      "direction": "남동향",
-      "description": "방3 계단식,올수리,전망, 전철역세권",
-      "source": "naver"
-    },
-    {
-      "complexName": "동부",
-      "price": "9억",
-      "area": 78,
-      "dong": "106동",
-      "floor": "7/17",
-      "direction": "남동향",
-      "description": "방3 계단식,주인거주,로얄층,수리,전철역세권",
       "source": "naver"
     },
     {
@@ -1488,22 +1311,22 @@
     },
     {
       "complexName": "동부",
-      "price": "9억 5,000",
-      "area": 78,
-      "dong": "102동",
-      "floor": "12/17",
-      "direction": "남동향",
-      "description": "기본상태, 주인거주",
-      "source": "naver"
-    },
-    {
-      "complexName": "동부",
       "price": "8억 9,000",
       "area": 78,
       "dong": "104동",
       "floor": "7/17",
       "direction": "남동향",
       "description": "내부수리 도배깨끗 즉시입주 입주일자유선택가능 앞뒤전망트임",
+      "source": "naver"
+    },
+    {
+      "complexName": "동부",
+      "price": "9억 5,000",
+      "area": 78,
+      "dong": "102동",
+      "floor": "12/17",
+      "direction": "남동향",
+      "description": "기본상태, 주인거주",
       "source": "naver"
     },
     {
@@ -1795,20 +1618,20 @@
       "complexName": "동천마을현대홈타운1차",
       "price": "11억",
       "area": 122,
-      "dong": "106동",
-      "floor": "고/16",
+      "dong": "104동",
+      "floor": "고/25",
       "direction": "남향",
-      "description": "동천역5분, 남향, 로열동, 주차연결, 입주협의가능, 수리기간드림",
+      "description": "동천역5분, 남향, 화이트수리, 비확장, 입주협의가능",
       "source": "naver"
     },
     {
       "complexName": "동천마을현대홈타운1차",
       "price": "11억",
       "area": 122,
-      "dong": "104동",
-      "floor": "고/25",
+      "dong": "106동",
+      "floor": "고/16",
       "direction": "남향",
-      "description": "동천역5분, 남향, 화이트수리, 비확장, 입주협의가능",
+      "description": "동천역5분, 남향, 로열동, 주차연결, 입주협의가능, 수리기간드림",
       "source": "naver"
     },
     {
@@ -1861,28 +1684,6 @@
       "direction": "",
       "description": "햇살가득남향 특전망 로얄동 올수리 컨디션최고 엘베연결",
       "source": "asil"
-    },
-    {
-      "complexName": "동천마을현대홈타운1차",
-      "price": "10억 7,000",
-      "area": "122",
-      "areaExclusive": "122",
-      "dong": "106동",
-      "floor": "고층",
-      "direction": "",
-      "description": "동천역5분, 남향, 로열동, 주차연결, 입주협의가능, 수리기간드림",
-      "source": "asil"
-    },
-    {
-      "complexName": "동천마을현대홈타운1차",
-      "price": "11억",
-      "area": "122",
-      "areaExclusive": "122",
-      "dong": "104동",
-      "floor": "23층",
-      "direction": "",
-      "description": "동천역5분, 남향, 전망굿, 부분수리, 주차연결동, 입주협의가능",
-      "source": "asil"
     }
   ],
   "동천마을현대홈타운2차": [
@@ -1918,22 +1719,22 @@
     },
     {
       "complexName": "동천마을현대홈타운2차",
-      "price": "10억 3,000",
-      "area": 122,
-      "dong": "204동",
-      "floor": "1/25",
-      "direction": "남향",
-      "description": "남향, 확장, 부분수리, 깨끗, 동천역가까운동, 입지좋은대단지",
-      "source": "naver"
-    },
-    {
-      "complexName": "동천마을현대홈타운2차",
       "price": "9억",
       "area": 81,
       "dong": "201동",
       "floor": "2/25",
       "direction": "동향",
       "description": "대단지아파트 동천역근접동  기본형 9월초이후 교통편리",
+      "source": "naver"
+    },
+    {
+      "complexName": "동천마을현대홈타운2차",
+      "price": "10억 3,000",
+      "area": 122,
+      "dong": "204동",
+      "floor": "1/25",
+      "direction": "남향",
+      "description": "남향, 확장, 부분수리, 깨끗, 동천역가까운동, 입지좋은대단지",
       "source": "naver"
     },
     {
@@ -1954,16 +1755,6 @@
       "floor": "고/25",
       "direction": "남향",
       "description": "남향 정상입주 로얄동 환상전망 채광굿 기본형",
-      "source": "naver"
-    },
-    {
-      "complexName": "동천마을현대홈타운2차",
-      "price": "10억 6,000",
-      "area": 122,
-      "dong": "206동",
-      "floor": "중/25",
-      "direction": "동향",
-      "description": "올확장 시원한전망 관리가 잘된집  동천역세권 입주협의",
       "source": "naver"
     },
     {
@@ -1994,6 +1785,16 @@
       "floor": "고/24",
       "direction": "남향",
       "description": "H. 좋은집 밝고환한남향 관리최상 채광굿 주차편리 학세권 동천역",
+      "source": "naver"
+    },
+    {
+      "complexName": "동천마을현대홈타운2차",
+      "price": "10억 6,000",
+      "area": 122,
+      "dong": "206동",
+      "floor": "중/25",
+      "direction": "동향",
+      "description": "올확장 시원한전망 관리가 잘된집  동천역세권 입주협의",
       "source": "naver"
     },
     {
@@ -2200,16 +2001,6 @@
     },
     {
       "complexName": "동천디이스트",
-      "price": "12억 2,000",
-      "area": 108,
-      "dong": "515동",
-      "floor": "중/23",
-      "direction": "남서향",
-      "description": "로얄동층 트인전망예뻐요 확장형 동천역과상가인접이라서 편해요",
-      "source": "naver"
-    },
-    {
-      "complexName": "동천디이스트",
       "price": "11억 1,000",
       "area": 108,
       "dong": "501동",
@@ -2367,22 +2158,22 @@
   "써니벨리": [
     {
       "complexName": "써니벨리",
-      "price": "9억 3,000",
-      "area": 92,
-      "dong": "106동",
-      "floor": "1/19",
-      "direction": "남향",
-      "description": "정상,깨끗하고 일부수리에 전망굿 단지내초등학교 신분당선 동천역10분",
-      "source": "naver"
-    },
-    {
-      "complexName": "써니벨리",
       "price": "11억 2,000",
       "area": 109,
       "dong": "107동",
       "floor": "7/18",
       "direction": "남향",
       "description": "추천매물 로얄동 앞트인전망 결로 곰팡이없이 관리최상",
+      "source": "naver"
+    },
+    {
+      "complexName": "써니벨리",
+      "price": "9억 3,000",
+      "area": 92,
+      "dong": "106동",
+      "floor": "1/19",
+      "direction": "남향",
+      "description": "정상,깨끗하고 일부수리에 전망굿 단지내초등학교 신분당선 동천역10분",
       "source": "naver"
     },
     {
